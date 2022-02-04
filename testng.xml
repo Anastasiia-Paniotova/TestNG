@@ -1,0 +1,16 @@
+<suite name="Group of group Suite" verbose="1">
+    <test name="Group of group Test">
+        <groups>
+            <define name="include-group">
+                <include name="positive" />
+            </define>
+
+            <run>
+                <include name="positive" />
+            </run>
+        </groups>
+        <classes>
+            <class name="test.java.DouTests"/>
+        </classes>
+    </test>
+</suite>
