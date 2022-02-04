@@ -28,7 +28,7 @@ public class DouTests {
 
     @BeforeMethod(alwaysRun = true)
     public void setUpPrerequisites(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Professional\\Desktop\\auto_hw\\chrome_webdriver\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Professional\\Desktop\\jenkins\\chrome_webdriver\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://dou.ua/");
     }
