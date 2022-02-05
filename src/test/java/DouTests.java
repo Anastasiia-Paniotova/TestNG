@@ -50,7 +50,7 @@ public class DouTests {
     @Test(groups = {"positive"})
     public void redirectByClickingLogo() {
         WebElement robotaElement =(new WebDriverWait(driver,Duration.ofSeconds(10))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Робота']"))));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@href='https://jobs.dou.ua/']"))));
 
         robotaElement.click();
 
