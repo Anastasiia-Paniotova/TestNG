@@ -34,7 +34,8 @@ public class DouTests {
     // получаем цвет после наведения курсора на меню Форум
     @Test(groups = {"positive"})
     public void hoverMenu() {
-        WebElement forumElement = driver.findElement(By.xpath("//*[text()='Форум']"));
+        WebElement forumElement = (new WebDriverWait(driver,Duration.ofSeconds(5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Форум']"))));
 
         Actions moveMouse = new Actions(driver);
         moveMouse.moveToElement(forumElement).perform();
@@ -47,12 +48,15 @@ public class DouTests {
     //клик на лого редиректит юзера на главную страницу
     @Test(groups = {"positive"})
     public void redirectByClickingLogo() {
-        WebElement robotaElement = driver.findElement(By.xpath("//*[text()='Робота']"));
+        WebElement robotaElement =(new WebDriverWait(driver,Duration.ofSeconds(5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Робота']"))));
+
         robotaElement.click();
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-        WebElement logo = driver.findElement(By.className("logo"));
+        WebElement logo = (new WebDriverWait(driver,Duration.ofSeconds(5))
+                .until(ExpectedConditions.presenceOfElementLocated(By.className("logo"))));
         logo.click();
 
         String URL = driver.getCurrentUrl();
