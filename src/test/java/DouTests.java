@@ -29,12 +29,13 @@ public class DouTests {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://dou.ua/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     // получаем цвет после наведения курсора на меню Форум
     @Test(groups = {"positive"})
     public void hoverMenu() {
-        WebElement forumElement = (new WebDriverWait(driver,Duration.ofSeconds(5))
+        WebElement forumElement = (new WebDriverWait(driver,Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Форум']"))));
 
         Actions moveMouse = new Actions(driver);
@@ -48,15 +49,13 @@ public class DouTests {
     //клик на лого редиректит юзера на главную страницу
     @Test(groups = {"positive"})
     public void redirectByClickingLogo() {
-        WebElement robotaElement =(new WebDriverWait(driver,Duration.ofSeconds(5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Робота']"))));
+        WebElement robotaElement =(new WebDriverWait(driver,Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Робота']"))));
 
         robotaElement.click();
 
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-        WebElement logo = (new WebDriverWait(driver,Duration.ofSeconds(5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.className("logo"))));
+        WebElement logo = (new WebDriverWait(driver,Duration.ofSeconds(10))
+                .until(ExpectedConditions.elementToBeClickable(By.className("logo"))));
         logo.click();
 
         String URL = driver.getCurrentUrl();
