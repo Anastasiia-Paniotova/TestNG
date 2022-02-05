@@ -36,7 +36,7 @@ public class DouTests {
     @Test(groups = {"positive"})
     public void hoverMenu() {
         WebElement forumElement = (new WebDriverWait(driver,Duration.ofSeconds(10))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Форум']"))));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[@href='https://dou.ua/forums/']"))));
 
         Actions moveMouse = new Actions(driver);
         moveMouse.moveToElement(forumElement).perform();
